@@ -1,0 +1,38 @@
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextButton = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+
+-- Parent the GUI
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Frame Setup
+Frame.Size = UDim2.new(0, 100, 0, 180)
+Frame.Position = UDim2.new(0, 906, 0, 0)
+Frame.Parent = ScreenGui
+
+-- Button Setup
+TextButton.Size = UDim2.new(0, 100, 0, 50)
+TextButton.Text = "Auto Farm"
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
+TextButton.Position = UDim2.new(0, 0, 0, 60)
+TextButton.Parent = Frame
+
+-- Label Setup (💥 text scales here)
+TextLabel.Text = "Dead Rails Scripts by BotAccount16525"
+TextLabel.Size = UDim2.new(0, 100, 0, 50)
+TextLabel.Position = UDim2.new(0, 0, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextWrapped = true
+TextLabel.Parent = Frame
+
+-- Functionality
+TextButton.MouseButton1Click:Connect(function()
+	local success, err = pcall(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))()
+	end)
+
+	if not success then
+		warn("Script failed to load: " .. err)
+	end
+end)
